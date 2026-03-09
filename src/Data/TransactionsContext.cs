@@ -6,12 +6,11 @@ public class TransactionsContext : DbContext
     public string ProductName { get; set; }
     public decimal Amount { get; set; }
     public DateTime TransactionDate { get; set; }
-    public TransactionStatus Status {get; set; }
-} 
+    public TransactionStatus Status {get; set; } 
 
-public enum TransactionStatus
-{
-    Active,
-    Revoked,
-    Finalized
+    // TODO: put sql server
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer("");
+    }
 }

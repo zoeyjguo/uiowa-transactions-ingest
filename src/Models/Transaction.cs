@@ -7,4 +7,12 @@ public class Transaction
     public decimal Amount { get; set; }
     public DateTime TransactionDate { get; set; }
     public TransactionStatus Status {get; set; }
+    public List<TransactionAudit> Audits { get; set; }
 } 
+
+public enum TransactionStatus
+{
+    Active,
+    Revoked,
+    Finalized
+}
